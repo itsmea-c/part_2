@@ -1,3 +1,7 @@
+This is Part 2 of Capstone Project
+Supervised Machine Learning Model — Build, Train, and Evaluate
+Trained Linear Regression model, Logistic Regression model. Performed Regularization experiment on Logistic Regression and calculated Bootstrap confidence interval for AUC difference
+
 1. Load the dataset: Loaded the cleaned dataset and defined features and labels
    Feature matrix X: Dropped the Regression target column (final_score) and Classification target column (passed)
    Regression label (y_reg): final_score column is the Regression label
@@ -11,13 +15,16 @@
 4. Regression model — Linear Regression: 
 Trained a linear regression model
 Computed MSE and R² for linear regression model
+Comparison Table:                        Model        MSE        R²
+0                             Linear Regression  53.923017  0.751587
+1                      Ridge Regression (α=1.0)  53.939268  0.751512
 Printed the model's coefficients alongside the corresponding feature names. Identified the three features with the largest absolute coefficient values (study_hours_per_week, attendance_rate, previous_score).
 A large positive coefficient means when the scaled feature increases by one unit that is one standard deviation above the mean after scaling, the predicted target value increases by the coefficient amount. In this scenario if a student’s study hours per week increase by one unit, the model predicts their final score will rise by about 12.8 points
 A large negative coefficient means when the scaled feature decreases by one unit that is one standard deviation below the mean after scaling, the predicted target value decreases by the coefficient amount.
 Trained a ridge regression model. Computed MSE and R² for ridge regression model and compared it against linear regression model
 Ridge regression will give different coefficient values compared to OLS linear regression because it will add penalty and try to shrink the coefficient values smaller when the features are highly correlated to avoid overfitting. The alpha parameter controls the strength of penalty applied that is when alpha = 0, ridge behaves like OLS linear regression and when larger values of alpha applied it will make the coefficient smaller and improve the performance if the model is overfitting
 In this scenario Ridge Regression performs almost identical to Linear Regression as there is no high multicollinearity
-5. Classification model — Logistic Regression: Checked y_clf_train.value_counts and both the classes have above 35% of samples and hence did not perform imbalance handling.
+6. Classification model — Logistic Regression: Checked y_clf_train.value_counts and both the classes have above 35% of samples and hence did not perform imbalance handling.
 Trained a Logistic Regression model and computed confusion matrix, accuracy, precision, recall, and F1 score
 Computed ROC Curve. Calculated AUC score. Plotted the ROC curve
 
@@ -44,3 +51,10 @@ Mean AUC difference:  6.2499999999998e-05
 97.5th percentile:  0.01672092013888891
 95% Confidence Interval: -0.01651475694444441, 0.01672092013888891
 95% confidence interval for the AUC difference includes zero and it means base model (C=1.0) does not show a consistently reliable advantage over the strong model (C=0.01) and so the difference is not reliable
+
+Note:
+
+1. Python script is saved as part_2.py and placed in the repository
+2. Cleaned data is saved as cleaned_data.csv and placed in the repository
+3. ROC Curve of Base model (C = 1.0) is saved as ROC Curve Base.png and placed in the repository
+4. ROC Curve of Strong model (C = 0.01) is saved as ROC Curve Strong.png and placed in the repository
