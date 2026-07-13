@@ -34,8 +34,10 @@ Recall = TP/(TP+FN), FN = False Negatives. It measures how many of the actual po
 b) At threshold of 0.40 we have maximum F1-score of 0.900
 c) In this scenario, Recall metric is important. False Negatives are costlier than False Positives because if a passed student is marked as failed then it will cause serious problem. If a failed student is marked as passed (False Positives) it is not fair but this will be less harmful compared to False Negatives
 d) If we lower the threshold, Recall will get better but there will be more False Positives. So it is better to calculate Recall with average threshold
+
 6. Regularization experiment on Logistic Regression: Trained a second logistic regression with C=0.01. Compared its precision, recall, and AUC against the baseline model with C=1.0.
 In logistic regression, the parameter C controls the strength of regularization which is the inverse of the penalty term applied to the coefficients. A larger C = 1.0 means weaker regularization allowing the model more flexibility to fit the training data while a smaller C = 0.01 enforces stronger L2 penalty, shrinking coefficients and simplifying the model. Here, reducing C from 1.0 to 0.01 led to higher precision but lower recall and AUC remained nearly identical. This indicates that with strong regularization it was more accurate when it predicted a pass but it missed many true passes. Since recall is more important here, with C = 0.01 overall performance is low though the precision is increased.
+
 7. Bootstrap confidence interval for AUC difference: Calculated AUC score of base model and strong model for Bootstrap and computed the AUC difference between them. Computed the mean AUC difference, 2.5th and 97.5th percentile of the 500 difference values.
 Mean AUC difference:  6.2499999999998e-05
 2.5th percentile:  -0.01651475694444441
